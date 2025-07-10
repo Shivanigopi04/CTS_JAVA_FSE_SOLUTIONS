@@ -1,0 +1,36 @@
+
+Hands-on 4: Spring Core – Load Country from Spring Configuration XML
+
+SME EXPLANATION:
+
+1. XML Configuration Tags and Attributes:
+-----------------------------------------
+- <bean>: Used to define a bean in the Spring container.
+  - id: Unique name for the bean.
+  - class: Fully qualified class name (e.g., com.cognizant.spring_learn.model.Country).
+
+Example:
+<bean id="country" class="com.cognizant.spring_learn.model.Country">
+    <property name="code" value="IN"/>
+    <property name="name" value="India"/>
+</bean>
+
+- <property>: Sets the value of a field in the bean.
+  - name: Name of the property in the Java class.
+  - value: Value to inject into the property.
+
+2. Spring Container & ApplicationContext:
+-----------------------------------------
+- ApplicationContext: Central interface to provide configuration for the application.
+- ClassPathXmlApplicationContext: Implementation of ApplicationContext that reads configuration from an XML file located in the classpath.
+
+Example:
+ApplicationContext context = new ClassPathXmlApplicationContext("country.xml");
+
+3. What happens during context.getBean():
+-----------------------------------------
+- When `context.getBean("country")` is called:
+  - Spring locates the bean definition with id="country" in the XML.
+  - Spring instantiates the Country class.
+  - It sets the properties defined via the <property> tag.
+  - Returns the fully initialized Country object.

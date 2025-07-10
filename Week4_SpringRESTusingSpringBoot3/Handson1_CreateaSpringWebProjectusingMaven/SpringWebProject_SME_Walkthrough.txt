@@ -1,0 +1,64 @@
+
+Subject Matter Expert (SME) Walkthrough: Spring Web Project using Maven
+
+1. src/main/java - Folder with application code
+------------------------------------------------
+- This folder contains all the Java source code.
+- Typically, it includes packages such as controller, service, model, and repository.
+- The main class that boots the Spring application (`SpringLearnApplication.java`) is located here.
+
+2. src/main/resources - Folder for application configuration
+------------------------------------------------------------
+- Contains configuration files such as `application.properties` or `application.yml`.
+- Also used for static resources, templates, and XML-based configuration files.
+- For example: `country.xml` is placed here when using Spring XML-based bean configuration.
+
+3. src/test/java - Folder with code for testing the application
+---------------------------------------------------------------
+- Contains unit and integration test cases.
+- Uses JUnit and Mockito (or other test libraries).
+- Mirrors the structure of `src/main/java` for easy test mapping.
+
+4. SpringLearnApplication.java - Walkthrough the main() method
+--------------------------------------------------------------
+- Entry point of the Spring Boot application.
+- Contains the `main()` method which runs `SpringApplication.run(SpringLearnApplication.class, args)`.
+- This triggers auto-configuration, component scanning, and bootstraps the application.
+
+5. Purpose of @SpringBootApplication annotation
+-----------------------------------------------
+- It’s a convenience annotation that combines:
+    @Configuration - Marks the class as a source of bean definitions.
+    @EnableAutoConfiguration - Enables auto-configuration.
+    @ComponentScan - Scans the package and sub-packages for Spring components.
+- It is placed on the main application class.
+
+6. pom.xml - Project Object Model configuration
+-----------------------------------------------
+- Lists project dependencies, plugins, and properties.
+- Uses `spring-boot-starter-parent` as the parent for default Spring Boot configuration.
+- Includes dependencies like:
+    - spring-boot-starter-web (for REST and web)
+    - spring-boot-starter-security (for JWT and auth)
+    - jjwt-api, jjwt-impl, jjwt-jackson (for JWT support)
+    - spring-context (for XML bean loading)
+    - spring-boot-devtools (for hot reload during dev)
+    - spring-boot-starter-test (for testing)
+
+1. Walkthrough all the configuration defined in XML file
+--------------------------------------------------------
+- XML configuration (e.g., `country.xml`) defines Spring beans.
+- Example:
+  <bean id="in" class="com.cognizant.spring_learn.model.Country">
+      <property name="code" value="IN"/>
+      <property name="name" value="India"/>
+  </bean>
+- Beans declared in XML can be loaded via `ApplicationContext`.
+
+2. Open 'Dependency Hierarchy' and show the dependency tree
+-----------------------------------------------------------
+- In IDEs like Eclipse/IntelliJ, you can right-click `pom.xml` > Maven > Show Dependency Hierarchy.
+- This shows transitive dependencies (e.g., Spring Boot Starter Web includes Jackson, Tomcat).
+- Helps identify version conflicts and dependency structure.
+
+End of SME Walkthrough.

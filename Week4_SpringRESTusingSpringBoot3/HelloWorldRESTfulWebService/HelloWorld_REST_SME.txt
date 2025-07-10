@@ -1,0 +1,34 @@
+SME Notes: Hello World RESTful Web Service
+
+1. In Network Tab of Developer Tools (Browser)
+
+To view the HTTP header details when accessing the Hello World REST endpoint:
+
+- Open Chrome Developer Tools (Press F12 or right-click > Inspect).
+- Go to the Network tab.
+- Make a request to the endpoint (e.g., http://localhost:8080/hello).
+- Click on the request name (e.g., hello).
+- In the right panel, under the Headers tab:
+  - General: Shows the request URL, method (GET), status code (200 OK).
+  - Response Headers: Shows metadata returned from the server.
+  - Request Headers: Shows metadata sent by the browser.
+
+Example Response Headers:
+Content-Type: text/plain;charset=UTF-8
+Content-Length: 12
+Date: Wed, 10 Jul 2025 08:00:00 GMT
+
+2. In Postman - Headers Tab
+
+To view HTTP headers using Postman:
+
+- Open Postman and send a GET request to http://localhost:8080/hello.
+- After receiving the response, click on the Headers tab in the response panel.
+- You will see key HTTP response headers such as:
+
+Example:
+content-type: text/plain;charset=UTF-8
+content-length: 12
+date: Wed, 10 Jul 2025 08:00:00 GMT
+
+These headers confirm that the server returned a plain text response (Hello World), and provide metadata about the response format, size, and timestamp.
